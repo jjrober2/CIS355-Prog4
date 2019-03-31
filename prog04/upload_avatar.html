@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Upload an Avatar</title>
+            <meta charset='UTF-8'>
+            <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css' rel='stylesheet'>
+            <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js'></script>
+            <style>label {width: 5em;}</style>
+        </head>
+                <!--When the Document Loads, Redefine the form's Action to have the id query Variable included-->
+        <body onload="getAction()">
+            <div class='container'>
+                <div class='span10 offset1'>
+                    <p class='row'>
+                        <h3>Upload an Avatar</h3>
+                    </p>
+                                        <form id='upload' class='form-horizontal' action='upload.php' method='post' enctype='multipart/form-data'>
+                                                <p>File :</p>
+                                                <input type='file' name='AvatarFile'>
+                                                <br />
+                                                <br />
+                                                <div class='form-actions'>
+                            <button type='submit' class='btn btn-success'>Upload</button>
+                             <a class='btn btn-secondary' href='customers.php'>Back</a>
+                                                </div>
+                    </form>
+                </div>
+            </div> <!-- /container -->
+                        <script>
+                                function getAction() {
+                                        //the form tag with the id of "upload" will only get this change:
+                                        //add the "?id=" query string to the end of the file call with the id of
+                                        //the avatar that is being edited.
+                                        document.getElementById("upload").action = "upload.php" + window.location.search;
+                                }
+                        </script>
+        </body>
+    </html>
